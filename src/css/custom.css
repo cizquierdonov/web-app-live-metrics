@@ -1,0 +1,19 @@
+.navbar-custom {
+  background-color: #1f2937;
+}
+
+.btn-dark {
+  background-color: #111827;
+}
+
+.bg-grey {
+  background-color: #e3e3e3;
+}
+
+.vertical-timeline-element-content {
+  border-top: 3px solid #2196f3;
+}
+
+.vertical-timeline-element-date {
+  color: #212529
+}
