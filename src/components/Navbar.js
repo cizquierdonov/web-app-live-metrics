@@ -1,4 +1,5 @@
 import React from "react";
+import PostDialog from "./PostDialog";
 
 const Navbar = () => {
   return (
@@ -17,10 +18,8 @@ const Navbar = () => {
               </div>
               <div className="px-2" />
               <div>
-                <form class="form-inline">
-                <button class="btn btn-primary btn-outline-light border-0" type="button">+ Post Metric</button>
-                </form>
                 {/* <a href="/post" className="btn btn-primary btn-outline-light border-0">+ Post Metric</a> */}
+                <PostDialog />
               </div>            
             </div>
           </div>

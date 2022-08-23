@@ -17,3 +17,8 @@
 .vertical-timeline-element-date {
   color: #212529
 }
+
+.loading-gif {
+  width: 3rem;
+  height: 3rem;
+}
