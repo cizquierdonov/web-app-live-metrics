@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# web-app-live-metrics
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React web application that shows and let create metrics.
 
 ## Public access to web application in Google Cloud
 
