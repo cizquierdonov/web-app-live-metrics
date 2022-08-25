@@ -81,14 +81,11 @@ const PostDialog = ({posts, setPosts}) => {
       } else if (!isLoaded) {
         return <div>Loading...</div>;
       } else {
-        console.log(metricPostRes);
-        //posts = [];
         window.location.href = "/?type=" + metric.type;
       }
       setOpen(false);
 
     } else {
-      console.log(metricTypeIsValid());
       //if (!metric.type || !metricTypeIsValid()) {
       //  setMetric({value: '', error: true, color: 'error'});
       //}
@@ -106,9 +103,9 @@ const PostDialog = ({posts, setPosts}) => {
   function metricTypeIsValid() {
     var arrTypes = types.metricTypes;
     for (const type of arrTypes) {
-      console.log("type:'" + type.name + "', metricTypeValue:'" + metric.type + "'");
+      //console.log("type:'" + type.name + "', metricTypeValue:'" + metric.type + "'");
       if (metric.type === type.name) {
-        console.log("valid metric type");
+        //console.log("valid metric type");
         return true;
       }
     }
@@ -121,7 +118,6 @@ const PostDialog = ({posts, setPosts}) => {
     } else {
       setMetric({type: event.target.value, error: true, color: "error"});
     }
-    console.log("I changed metric type to: '" + metric.type + "'. Event: " + event.target.value);
   };
 
   const handleMetricValueChange = (event) => {

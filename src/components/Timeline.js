@@ -80,7 +80,6 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
 
   const callGetAverageApi = (metricType, date) => {
     var fullUrl = metricsDalApiHost + metricPostsApiContextPath + "/average";
-    console.log("date: " + date);
 
     var getAvgReq = {
       average: {
@@ -118,11 +117,6 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
     setIsLoaded(false);
     var fullDate = avgDate.replace('T', ' ') + ":00";
     callGetAverageApi(metric, fullDate);
-
-    if (isLoaded) {
-      console.log("AVERAGE:")
-      console.log(averageRes);
-    }
   }
 
   useEffect(() => {
