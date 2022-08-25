@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, setIsLoaded, setError }  from 'react';
+import React, { useState, useEffect, setIsLoaded, setError }  from 'react';
 
 import Box from '@mui/material/Box';
 import MButton from '@mui/material/Button';
@@ -15,6 +15,8 @@ import Select from '@mui/material/Select';
 import FormHelperText from '@mui/material/FormHelperText';
 
 const PostDialog = ({posts, setPosts}) => {
+  var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+  var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 16);
 
   const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);  
@@ -24,12 +26,11 @@ const PostDialog = ({posts, setPosts}) => {
   const [metric, setMetric] = React.useState({type: "", error: false, color: "info"});
   const [metricValue, setMetricValue] = useState({value: "", error: false});
   const [review, setReview] = useState("");
-  const [recordDate, setRecordDate] = useState({value: "", error: false});
+  const [recordDate, setRecordDate] = useState({value: localISOTime, error: false});
   const [metricPostRes, setMetricPostRes] = useState({});
   
-  const metricPostsApiUrl = process.env.REACT_APP_METRIC_POSTS_API_URL;
   const metricTypesApiUrl = process.env.REACT_APP_METRIC_TYPES_API_URL;
-  const createMetricPostApiUrl = process.env.REACT_APP_CREATE_METRIC_POSTS_API_URL;
+  const createMetricPostApiUrl = process.env.REACT_APP_METRIC_POSTS_API_URL;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -81,7 +82,7 @@ const PostDialog = ({posts, setPosts}) => {
       } else {
         console.log(metricPostRes);
         //posts = [];
-        window.location.href = "/";
+        window.location.href = "/?type=" + metric.type;
       }
       setOpen(false);
 

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/custom.css"
-import Navbar from "./components/Navbar.js";
+import Navbar from "./components/Navbar";
 import Routing from "./components/Routing"
 
 

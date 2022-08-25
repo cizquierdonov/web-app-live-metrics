@@ -2,6 +2,12 @@ import React from "react";
 import PostDialog from "./PostDialog";
 
 const Navbar = () => {
+
+  const handleClickOpen = () => {
+    alert('MALDITO');
+    //setOpen(true);
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
@@ -18,8 +24,10 @@ const Navbar = () => {
               </div>
               <div className="px-2" />
               <div>
-                {/* <a href="/post" className="btn btn-primary btn-outline-light border-0">+ Post Metric</a> */}
-                <PostDialog />
+                {/* <button className="btn btn-primary btn-outline-light border-0" onClick={handleClickOpen}>
+                  + Post Metric
+                </button> */}
+                { <PostDialog /> }
               </div>            
             </div>
           </div>

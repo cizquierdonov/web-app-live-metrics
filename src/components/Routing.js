@@ -1,15 +1,17 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect}  from 'react';
 import {Routes, BrowserRouter, Route} from "react-router-dom";
 import Timeline from './Timeline';
 import PostDialog from './PostDialog';
 
 const Routing = () => {
-  
+  const urlParams = new URLSearchParams(window.location.search);
+  const metricTypeParam = urlParams.get('type');
+
   const [posts, setPosts] = useState([]);
   const [types, setTypes] = React.useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [metric, setMetric] = React.useState("none");
+  const [metric, setMetric] = React.useState(metricTypeParam && metricTypeParam !== '' ? metricTypeParam : 'none');
   const metricTypesApiUrl = process.env.REACT_APP_METRIC_TYPES_API_URL;
 
   var options = {  
