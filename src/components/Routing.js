@@ -12,7 +12,8 @@ const Routing = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [metric, setMetric] = React.useState(metricTypeParam && metricTypeParam !== '' ? metricTypeParam : 'none');
-  const metricTypesApiUrl = process.env.REACT_APP_METRIC_TYPES_API_URL;
+  const metricsDalApiHost = process.env.REACT_APP_MS_LIVEMET_METRICS_DAL_HOST
+  const metricTypesApiContextPath = process.env.REACT_APP_METRIC_TYPES_API_CONTEXT_PATH;
 
   var options = {  
     method: 'GET',
@@ -24,7 +25,7 @@ const Routing = () => {
   };
 
   useEffect(() => {
-    fetch(metricTypesApiUrl, options)
+    fetch(metricsDalApiHost + metricTypesApiContextPath, options)
       .then(res => res.json())
       .then(
         (data) => {
@@ -38,9 +39,6 @@ const Routing = () => {
       )
   }, []);
 
-  //console.log("TYPES: ");
-  //console.log(types);
-
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -52,7 +50,6 @@ const Routing = () => {
       </div>
     );
   } else {
-    //console.log(types.metricTypes[0]);
     return(
       <BrowserRouter>
         <Routes>

@@ -29,8 +29,9 @@ const PostDialog = ({posts, setPosts}) => {
   const [recordDate, setRecordDate] = useState({value: localISOTime, error: false});
   const [metricPostRes, setMetricPostRes] = useState({});
   
-  const metricTypesApiUrl = process.env.REACT_APP_METRIC_TYPES_API_URL;
-  const createMetricPostApiUrl = process.env.REACT_APP_METRIC_POSTS_API_URL;
+  const metricsDalApiHost = process.env.REACT_APP_MS_LIVEMET_METRICS_DAL_HOST
+  const metricPostsApiContextPath = process.env.REACT_APP_METRIC_POSTS_API_CONTEXT_PATH;
+  const metricTypesApiContextPath = process.env.REACT_APP_METRIC_TYPES_API_CONTEXT_PATH;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,7 +63,7 @@ const PostDialog = ({posts, setPosts}) => {
         }
       };
 
-      fetch(createMetricPostApiUrl, req)
+      fetch(metricsDalApiHost + metricPostsApiContextPath, req)
         .then(res => res.json())
         .then(
             (data) => {
@@ -145,7 +146,7 @@ const PostDialog = ({posts, setPosts}) => {
   };
 
   useEffect(() => {
-    fetch(metricTypesApiUrl, options)
+    fetch(metricsDalApiHost + metricTypesApiContextPath, options)
       .then(res => res.json())
       .then(
           (data) => {

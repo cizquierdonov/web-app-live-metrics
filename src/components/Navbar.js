@@ -3,11 +3,6 @@ import PostDialog from "./PostDialog";
 
 const Navbar = () => {
 
-  const handleClickOpen = () => {
-    alert('MALDITO');
-    //setOpen(true);
-  }
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">

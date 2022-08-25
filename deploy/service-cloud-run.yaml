@@ -1,0 +1,26 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: web-app-live-metrics
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '1'
+    spec:
+      containers:
+      - image: gcr.io/live-metrics-2606/web-app-live-metrics:1.0.0
+        env:
+        - name: MS_LIVEMET_METRICS_DAL_HOST
+          value: https://ms-livemet-metrics-dal-6rwr6t3zia-uc.a.run.app
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: '1'
+            memory: 512Mi
+      timeoutSeconds: 300
+      serviceAccountName: web-app-live-metrics-sa@live-metrics-2606.iam.gserviceaccount.com
+  traffic:
+  - latestRevision: true
+    percent: 100

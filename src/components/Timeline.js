@@ -27,12 +27,22 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
     }
   });
   
-  const metricPostsApiUrl = process.env.REACT_APP_METRIC_POSTS_API_URL;
+  const metricsDalApiHost = process.env.REACT_APP_MS_LIVEMET_METRICS_DAL_HOST
+  const metricPostsApiContextPath = process.env.REACT_APP_METRIC_POSTS_API_CONTEXT_PATH;
 
   const handleMetricTypeChange = (event) => {
     setIsLoaded(false);
     setGifLoading(true);    
     setMetric(event.target.value);
+    setAverageRes({
+      average: {
+        metricType: "",
+        date: "",
+        avgPerDay: "",
+        avgPerHour: "",
+        avgPerMinute: ""
+      }
+    });
     callGetPostsApi(event.target.value);
 
     if (isLoaded) {
@@ -41,7 +51,7 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
   };
 
   const callGetPostsApi = (metricType) => {
-    var fullUrl = metricPostsApiUrl + "?type=" + metricType;
+    var fullUrl = metricsDalApiHost + metricPostsApiContextPath + "?type=" + metricType;
 
     var options = {  
       method: 'GET',
@@ -69,7 +79,7 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
   }
 
   const callGetAverageApi = (metricType, date) => {
-    var fullUrl = metricPostsApiUrl + "/average";
+    var fullUrl = metricsDalApiHost + metricPostsApiContextPath + "/average";
     console.log("date: " + date);
 
     var getAvgReq = {
