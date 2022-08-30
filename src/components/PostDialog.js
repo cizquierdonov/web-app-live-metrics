@@ -14,11 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormHelperText from '@mui/material/FormHelperText';
 
-const PostDialog = ({posts, setPosts}) => {
+const PostDialog = ({posts, setPosts, open, setOpen}) => {
   var tzoffset = (new Date()).getTimezoneOffset() * 60000;
   var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 16);
 
-  const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);  
   const [types, setTypes] = useState([]);
   const [error, setError] = useState(null);
@@ -166,9 +165,9 @@ const PostDialog = ({posts, setPosts}) => {
 
     return (
       <React.Fragment>
-        <button className="btn btn-primary btn-outline-light border-0" onClick={handleClickOpen}>
+        {/* <button className="btn btn-primary btn-outline-light border-0" onClick={handleClickOpen}>
           + Post Metric
-        </button>
+        </button> */}
         <Dialog
           fullWidth={fullWidth}
           //maxWidth={maxWidth}

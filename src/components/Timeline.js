@@ -148,10 +148,11 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
             }}
           >
             <FormControl sx={{ mt: 2, minWidth: 120 }}>
-            <div className='box01'>
-              <div className='box02'>
+            <div className='content'>
+              <div className='box01'>
                 <TextField
                   id="metric"
+                  className="select-align"
                   select
                   value={metric}
                   onChange={handleMetricTypeChange}
@@ -165,8 +166,8 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
                   ))}
                 </TextField>
               </div>
-              <div className='box04' />
-              <div className='box02'>
+              {/* <div className='box04' /> */}
+              <div className='box01'>
                 <TextField
                   id="datetime-local"
                   label="Average Date"
@@ -181,8 +182,8 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
                   }}
                 />
               </div>
-              <div className='box04' />
-              <div className='box03'>
+              {/* <div className='box04' /> */}
+              <div className='box02'>
                 <button
                   className="btn btn-primary btn-outline-dark border-0"
                   onClick={handleClickGetAverage}
@@ -191,6 +192,7 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
                   Get Average
                 </button>
               </div>
+              <div className='mt-2' />
             </div>    
             </FormControl>
           </Box>
@@ -198,21 +200,16 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
 
         <div className='bg-grey' style={{visibility: (posts && posts.metricPosts && posts.metricPosts.length > 0) ? 'visible' : 'hidden'}}>
 
-          <div className='text-center'>
-
-          </div>
-
-          <div style={{visibility: (averageRes && averageRes.average && averageRes.average.metricType !== '' && metric !== '' && metric !== 'none') ? 'visible' : 'hidden'}}>
+          <div style={{display: (averageRes && averageRes.average && averageRes.average.metricType !== '' && metric !== '' && metric !== 'none') ? 'block' : 'none'}}>
             <Box
-              display="grid"
-              gridTemplateColumns="repeat(12, 1fr)" gap={6}
+              className='content'
               sx={{
                 flexDirection: 'column',
                 m: 'auto',
                 width: 'fit-content',
               }}
             >
-              <Box gridColumn="span 4" className='mt-3'>              
+              <Box className='mt-3'>              
                 <MDBCard shadow='0' background='white' className='mb-3 text-center' style={{ maxWidth: '18rem' }} alignment="center">
                   <MDBCardHeader background='primary' className='text-white'>Average per Minute</MDBCardHeader>
                   <MDBCardBody className='text-dark'>
@@ -220,7 +217,7 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
                   </MDBCardBody>
                 </MDBCard>
               </Box>
-              <Box gridColumn="span 4" className='mt-3'>
+              <Box className='mt-3'>
                 <MDBCard shadow='0' background='white' className='mb-3 text-center' style={{ maxWidth: '18rem' }} alignment="center">
                   <MDBCardHeader background='primary' className='text-white'>Average per Hour</MDBCardHeader>
                   <MDBCardBody className='text-dark'>
@@ -228,7 +225,7 @@ const Timeline = ({posts, setPosts, types, setTypes, metric, setMetric}) => {
                   </MDBCardBody>
                 </MDBCard>
               </Box>
-              <Box gridColumn="span 4" className='mt-3'>
+              <Box className='mt-3'>
                 <MDBCard shadow='0' background='white' className='mb-3 text-center' style={{ maxWidth: '18rem' }} alignment="center">
                   <MDBCardHeader background='primary' className='text-white'>Average per Day</MDBCardHeader>
                   <MDBCardBody className='text-dark'>

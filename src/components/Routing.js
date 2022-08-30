@@ -54,7 +54,7 @@ const Routing = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Timeline posts={posts} setPosts={setPosts} types={types} setTypes={setTypes} metric={metric} setMetric={setMetric} />} />
-          <Route path="/post" element={<PostDialog posts={posts} setPosts={setPosts} />} />
+          {/* <Route path="/post" element={<PostDialog posts={posts} setPosts={setPosts} />} /> */}
         </Routes>
       </BrowserRouter>
     );
