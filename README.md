@@ -37,6 +37,10 @@ npm install -D tailwindcss
 npx tailwindcss init
 npx tailwindcss -i ./src/css/input.css -o ./dist/css/output.css --watch
 
+2.5) React Icons:
+
+npm install react-icons --save
+
 ### 3) Before install web application, please startup [https://gitlab.com/cizquierdonov/live-metrics/ms-livemet-metrics-dal](https://gitlab.com/cizquierdonov/live-metrics/ms-livemet-metrics-dal) backend service in localhost.
 
 ## Step by step to install and run web application localhost
