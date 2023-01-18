@@ -65,7 +65,13 @@ You may also see any lint errors in the console.
 NOTE: This application depends on ms-livemet-metrics-dal (backend) to work. You can download these in the following URL:
 [https://gitlab.com/cizquierdonov/live-metrics/ms-livemet-metrics-dal](https://gitlab.com/cizquierdonov/live-metrics/ms-livemet-metrics-dal)
 
-## Learn More
+## Architecture Diagram
+
+For more information about architecture and integrations, please check the next image:
+
+![LiveMetrics - Documentation-Architecture drawio (2)](https://user-images.githubusercontent.com/26800918/213064765-3e73f109-1230-44eb-86e3-219cf6630e71.png)
+
+
 
 For more information about architecture and integrations, please visit [https://app.diagrams.net/#G1HGe_iqgwu4FQwDNBW-1FL0MTv3BXDk3R](https://app.diagrams.net/#G1HGe_iqgwu4FQwDNBW-1FL0MTv3BXDk3R) to check database E-R diagram
 and Architecture diagram.
